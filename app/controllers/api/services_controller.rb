@@ -1,5 +1,5 @@
 class Api::ServicesController < ApplicationController
-  before_action :set_service, only: [:edit, :update, :destroy]
+  before_action :set_service, only: [:update, :destroy]
   def index
     render json: Service.all
   end
