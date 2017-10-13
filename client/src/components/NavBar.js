@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import { withRouter } from 'react-router-dom';
 
+const styles = {
+  navContainer: {
+    backgroundColor: '#343434',
+  },
+}
+
 class NavBar extends Component {
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
@@ -14,6 +20,7 @@ class NavBar extends Component {
         <Menu.Menu position='right'>
           <Menu.Item
             name='Logout'
+            style={{color:'white'}}
             onClick={() => dispatch(handleLogout(history))}
           />
         </Menu.Menu>
@@ -22,10 +29,14 @@ class NavBar extends Component {
       return(
         <Menu.Menu position='right'>
           <Link to='/register'>
-            <Menu.Item name='Register' />
+            <Menu.Item name='Register'
+            style={{color:'white'}}
+             />
           </Link>
           <Link to='/login'>
-            <Menu.Item name='Login' />
+            <Menu.Item name='Login'
+            style={{color:'white'}}
+             />
           </Link>
         </Menu.Menu>
       );
@@ -34,10 +45,10 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.navContainer}>
         <Menu pointing secondary>
           <Link to='/'>
-            <Menu.Item name='home' />
+            <Menu.Item name='home' style={{color:'white'}}/>
           </Link>
           { this.rightNavs() }
         </Menu>
